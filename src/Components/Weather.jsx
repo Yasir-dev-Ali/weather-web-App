@@ -15,7 +15,6 @@ const Weather = () => {
   
   return (
     <>
-     {/*  Good Designe Weather app in tailwind css */}
       <div className="flex justify-center items-center h-screen bg-gray-200">
         <div className="bg-white p-8 rounded shadow-md w-1/2">
           <h1 className="text-2xl font-bold mb-4">Weather App</h1>
@@ -24,13 +23,19 @@ const Weather = () => {
             <button className="bg-blue-500 text-white p-2 rounded"
              onClick={()=> handleChange()}>Search</button>
           </div>
-          <div className="mt-8">
-            <h2 className="text-xl font-bold">City Name</h2>
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg">Temperature: 25°C</h3>
-              <h3 className="text-lg">Weather: Cloudy</h3>
-            </div>
-          </div>
+          {
+            weather.main && (
+              <div className="mt-8">
+                <h2 className="text-xl font-bold">City Name: {weather.name}</h2>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg">Temperature: {weather.main.temp}°C</h3>
+                  <h3 className="text-lg">Weather: {weather.weather[0].main}</h3>
+                </div>
+              </div>
+            )
+
+          }
+        
         </div>
       </div>
 
